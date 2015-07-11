@@ -1,25 +1,2 @@
 <h1>Creer nouvel article</h1>
-<%= form_for @article do |f| %>
-	<div>
-		<%= f.label :title %>
-		<%= f.text_field :title %>
-	</div>
-	<div>
-		<%= f.label :summary %>
-		<%= f.text_area :summary %>
-	</div>
-	<div>
-		<%= f.label :content %>
-		<%= f.text_area :content %>
-	</div>
-	<div>
-		<%= f.label :author_id %>
-		<%= f.select :author_id, options_for_select( User.all.map{|u| [u.email, u.id] }, @article.author_id), include_blank: true  %>
-	</div>
-	<div>
-		<%= f.label :category_id %>
-		<%= f.select :category_id, options_for_select( Category.all.map{|c| [c.name, c.id] }, @article.category_id), include_blank: true  %>
-	</div>
-
-	<%= f.submit %>
-<% end %>
+<%= render partial: "form" %>

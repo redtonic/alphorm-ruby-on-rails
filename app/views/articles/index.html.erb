@@ -5,8 +5,9 @@
 			<td><%= article.title %></td>
 			<td><%= article.summary %></td>
 			<td>
-				<a href="<%= show_article_path(article.id) %>">Afficher</a> -
-				<a href="<%= edit_article_path(article.id) %>">Editer</a>
+				<a href="<%= article_path(article.id) %>">Afficher</a> -
+				<a href="<%= edit_article_path(article.id) %>">Editer</a> -
+				<a href="<%= article_path(article.id) %>" data-method="DELETE" rel="nofollow">Supprimer</a>
 			</td>
 		</tr>
 	<% end %>

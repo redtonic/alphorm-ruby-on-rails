@@ -7,14 +7,14 @@ Rails.application.routes.draw do
   root 'static#index'
 
   get '/articles' => 'articles#index', as: 'articles'
-  post '/articles' => 'articles#create', as: 'create_article'
+  post '/articles' => 'articles#create'
 
   get '/articles/new' => 'articles#new', as: 'new_article'
 
 
-  delete '/articles/:id' => 'articles#delete', as: 'delete_article'
-  get '/articles/:id' => 'articles#show', as: "show_article"
-  put '/articles/:id' => 'articles#update', as: 'update_article'
+  get '/articles/:id' => 'articles#show', as: "article"
+  match '/articles/:id' => 'articles#update', via: [:put, :patch]
+  delete '/articles/:id' => 'articles#delete'
 
   get '/articles/:id/edit' => 'articles#edit', as: 'edit_article'
 

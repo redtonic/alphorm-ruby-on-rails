@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
+	before_action :set_article, only: [:show, :edit, :update, :delete]
+
 	def show
-		@article = Article.find params[:id]
 	end
 
 	def index
@@ -14,8 +15,8 @@ class ArticlesController < ApplicationController
 	def create
 		@article = Article.new param_article
 
-		if false #@article.save
-			redirect_to show_article_path(@article.id)
+		if @article.save
+			redirect_to article_path(@article.id)
 		else
 			render "new"
 		end
@@ -25,13 +26,24 @@ class ArticlesController < ApplicationController
 	end
 
 	def update
+		if @article.update param_article
+			redirect_to article_path(@article.id)
+		else
+			render "edit"
+		end
 	end
 
 	def delete
+		@article.destroy
 
+		redirect_to articles_path
 	end
 
 private
+
+	def set_article
+		@article = Article.find params[:id]
+	end
 
 	def param_article
 		params.require(:article).permit(:title, :summary, :content, :category_id, :author_id)
