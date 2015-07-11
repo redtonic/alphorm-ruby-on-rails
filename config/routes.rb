@@ -6,7 +6,17 @@ Rails.application.routes.draw do
   #get '/' => 'static#index'
   root 'static#index'
 
+  get '/articles' => 'articles#index', as: 'articles'
+  post '/articles' => 'articles#create', as: 'create_article'
+
+  get '/articles/new' => 'articles#new', as: 'new_article'
+
+
+  delete '/articles/:id' => 'articles#delete', as: 'delete_article'
   get '/articles/:id' => 'articles#show', as: "show_article"
+  put '/articles/:id' => 'articles#update', as: 'update_article'
+
+  get '/articles/:id/edit' => 'articles#edit', as: 'edit_article'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

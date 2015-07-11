@@ -1,0 +1,15 @@
+<h1>Liste des articles</h1>
+<table>
+	<% @articles.each do |article| %>
+		<tr>
+			<td><%= article.title %></td>
+			<td><%= article.summary %></td>
+			<td>
+				<a href="<%= show_article_path(article.id) %>">Afficher</a> -
+				<a href="<%= edit_article_path(article.id) %>">Editer</a>
+			</td>
+		</tr>
+	<% end %>
+</table>
+
+<a href="<%= new_article_path %>">Creer un nouvel article</a>
