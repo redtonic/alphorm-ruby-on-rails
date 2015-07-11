@@ -1,6 +1,7 @@
 class Article < ActiveRecord::Base
   # title: string
   # content: text
+  # summary: text
   # category: Category
   # author: User
 

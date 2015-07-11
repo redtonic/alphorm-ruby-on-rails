@@ -10,5 +10,10 @@
 	</ul>
 </nav>
 <div>
-A FAIRE: Afficher les articles de mon blog
+<% @articles.each do |article| %>
+	<div class="article">
+		<h3><%= link_to article.title, show_article_path(article.id) %></h3>
+		<p><%= article.summary %></p>
+	<div>
+<% end %>
 </div>

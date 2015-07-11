@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   #"www.monblog.com" => "/"
-  #"www.monblog.com/categories" => "/categories" 
+  #"www.monblog.com/categories" => "/categories"
   #"www.monblog.com/static/index" => "static#index"
 
   #get '/' => 'static#index'
   root 'static#index'
+
+  get '/articles/:id' => 'articles#show', as: "show_article"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
