@@ -6,18 +6,19 @@ Rails.application.routes.draw do
   #get '/' => 'static#index'
   root 'static#index'
 
-  get '/articles' => 'articles#index', as: 'articles'
-  post '/articles' => 'articles#create'
+  #get '/articles' => 'articles#index', as: 'articles'
+  #post '/articles' => 'articles#create'
 
-  get '/articles/new' => 'articles#new', as: 'new_article'
+  #get '/articles/new' => 'articles#new', as: 'new_article'
 
+  #get '/articles/:id' => 'articles#show', as: "article"
+  #match '/articles/:id' => 'articles#update', via: [:put, :patch]
+  #delete '/articles/:id' => 'articles#delete'
 
-  get '/articles/:id' => 'articles#show', as: "article"
-  match '/articles/:id' => 'articles#update', via: [:put, :patch]
-  delete '/articles/:id' => 'articles#delete'
+  #get '/articles/:id/edit' => 'articles#edit', as: 'edit_article'
 
-  get '/articles/:id/edit' => 'articles#edit', as: 'edit_article'
-
+  resources :articles
+  resources :categories
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
