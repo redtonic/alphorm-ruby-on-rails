@@ -1,0 +1,14 @@
+<div class="errors">
+	<ul>
+		<div>Il y a des erreurs qui empeches d'enregistrer le formulaire:</div>
+
+		<% errors.each do |field, error_type| %>
+			<li>
+				<strong><%= field %></strong>
+				<span>
+					<%= error_type.join(", ") %>
+				</span>
+			</li>
+		<% end %>
+	</ul>
+</div>
